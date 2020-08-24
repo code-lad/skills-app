@@ -1,19 +1,23 @@
 <template>
-  <div class="navbar">
+  <div id="navbar">
     <!-- Navigation Start-->
     <div class="navbar-fixed">
       <nav class="nav">
         <div class="nav-wrapper container links">
-          <img class="logo left" id="logo-img" src="" alt="" />
-          <a class="logo left">Skills In</a>
+          <img class="logo left" id="logo-img" src alt />
+          <a class="logo left">Knacks in</a>
           <ul class="right hide-on-small-only">
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="{name:'/about'}">About</router-link></li>
-            <li><router-link to="">Contact</router-link></li>
+            <li>
+              <router-link to="/">Home</router-link>
+            </li>
+            <li>
+              <router-link to="{name:'/about'}">About</router-link>
+            </li>
+            <li>
+              <router-link to>Contact</router-link>
+            </li>
           </ul>
-          <a
-            class="btn-floating btn-small halfway-fab waves-effect waves-light teal"
-          >
+          <a class="btn-floating btn-small halfway-fab waves-effect waves-light grey lighten-5">
             <i class="material-icons">add</i>
           </a>
         </div>
@@ -25,29 +29,37 @@
       <li>
         <div class="user-view">
           <div class="background"></div>
-          <a href="#user"><img class="circle" src=""/></a>
-          <a><span class="white-text name">Skills In</span></a>
-          <a href="#email"
-            ><span class="white-text email">skillsin@gmail.com</span></a
-          >
+          <a href="#user">
+            <img class="circle" src />
+          </a>
+          <a>
+            <span class="white-text name">Skills In</span>
+          </a>
+          <a href="#email">
+            <span class="white-text email">skillsin@gmail.com</span>
+          </a>
         </div>
       </li>
-      <li><a class="subheader">SVPS</a></li>
       <li>
-        <a href="" class="grey lighten-3"
-          ><i class="material-icons right">folder</i>E-Learning</a
-        >
+        <a class="subheader">SVPS</a>
       </li>
       <li>
-        <a class="grey lighten-3"
-          ><i class="material-icons right">comment</i>Messages</a
-        >
+        <a href class="grey lighten-3">
+          <i class="material-icons right">folder</i>E-Learning
+        </a>
       </li>
-      <li><a class="subheader">More</a></li>
       <li>
-        <a href="" class="grey lighten-3"
-          ><i class="material-icons right">brush</i>Sketch</a
-        >
+        <a class="grey lighten-3">
+          <i class="material-icons right">comment</i>Messages
+        </a>
+      </li>
+      <li>
+        <a class="subheader">More</a>
+      </li>
+      <li>
+        <a href class="grey lighten-3">
+          <i class="material-icons right">brush</i>Sketch
+        </a>
       </li>
     </ul>
     <!--    Side Menu End-->
@@ -62,7 +74,16 @@ export default {
 };
 </script>
 <style>
-.navbar .navbar-fixed nav {
-  background-color: #757575;
+#navbar .navbar-fixed nav {
+  background-color: #203a98;
+}
+#navbar nav .logo {
+  font-size: x-large;
+  font-family: cursive;
+  font-weight: 700;
+  color: azure;
+}
+#navbar .btn-floating i {
+  color: black;
 }
 </style>
