@@ -5,8 +5,11 @@
       <nav class="nav">
         <div class="nav-wrapper container links">
           <img class="logo left" id="logo-img" src alt />
-          <a class="logo left">Knacks in</a>
-          <ul class="right hide-on-small-only">
+          <router-link class="logo left" to="/">Knacks in</router-link>
+          <a href="#!" class="right brand-logo sidenav-trigger menu" data-target="slide-out">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
             <li>
               <router-link to="/">Home</router-link>
             </li>
@@ -17,9 +20,10 @@
               <router-link to>Contact</router-link>
             </li>
           </ul>
-          <a class="btn-floating btn-small halfway-fab waves-effect waves-light grey lighten-5">
+          <router-link class="btn-floating btn-small halfway-fab" :to="{name:'AddSkills'}">
             <i class="material-icons">add</i>
-          </a>
+          </router-link>
+          <!-- <a class="btn-floating btn-small halfway-fab waves-effect waves-light grey lighten-5"></a> -->
         </div>
       </nav>
     </div>
@@ -82,6 +86,7 @@ export default {
   font-family: cursive;
   font-weight: 700;
   color: azure;
+  cursor: pointer;
 }
 #navbar .btn-floating i {
   color: black;

@@ -3,7 +3,6 @@
     <Skills />
   </div>
 </template>
-
 <script>
 import Skills from "../components/Skills";
 export default {
