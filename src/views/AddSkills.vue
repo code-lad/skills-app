@@ -6,16 +6,27 @@
           <li>
             <div class="field title">
               <label for="title">Skill Title:</label>
-              <input type="text" autocomplete="off" name="title" v-model="title" />
-              <p v-if="feedback" class="red-text">{{feedback}}</p>
+              <input
+                type="text"
+                autocomplete="off"
+                name="title"
+                v-model="title"
+              />
+              <p v-if="feedback" class="red-text">{{ feedback }}</p>
             </div>
           </li>
-          <li class="list-skills-list" v-for="(skill, index) in skills" :key="index">
+          <li
+            class="list-skills-list"
+            v-for="(skill, index) in skills"
+            :key="index"
+          >
             <!-- <label for="skill">Add Skills</label>
             <input type="text" name="skill" v-model="skills[index]" />-->
             <span class="chip">
-              <span class="skill-span">{{skills[index]}}</span>
-              <i class="material-icons remove" @click="deleteSkillsList(skills.id)">clear</i>
+              <span class="skill-span">{{ skills[index] }}</span>
+              <i class="material-icons remove" @click="deleteSkillsList(skill)"
+                >clear</i
+              >
             </span>
           </li>
           <li>
@@ -29,7 +40,7 @@
                 v-model="another"
               />
             </div>
-            <p v-if="feedback" class="red-text">{{feedback}}</p>
+            <p v-if="feedback" class="red-text">{{ feedback }}</p>
           </li>
           <li>
             <div class="field center">
@@ -43,6 +54,8 @@
 </template>
 <script>
 import db from "@/firebase/init";
+import slugify from "slugify";
+
 export default {
   name: "AddSkills",
   data() {
@@ -59,11 +72,25 @@ export default {
       console.log(this.title, this.skills);
       if (this.title) {
         this.feedback = null;
-        db.collection("knacks").add({
-          title: "",
-          skills: "",
-          slug: "",
+        //create slugify
+        this.slug = slugify(this.title, {
+          replacement: "-",
+          remove: /[*+~.()'"!:@]/g,
+          lower: true,
         });
+        db.collection("knacks")
+          .add({
+            title: this.title,
+            skills: this.skills,
+            slug: this.slug,
+          })
+          .then(() => {
+            this.$router.push({ name: "Home" });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        console.log(this.slug);
       } else {
         this.feedback = "Enter valid skills title";
       }
@@ -78,9 +105,9 @@ export default {
         this.feedback = "Please enter valid value";
       }
     },
-    deleteSkillsList(id) {
-      this.skills = this.skills.filter((skills) => {
-        return skills.id != id;
+    deleteSkillsList(skill) {
+      this.skills = this.skills.filter((skill) => {
+        return skill != skill;
       });
     },
   },
