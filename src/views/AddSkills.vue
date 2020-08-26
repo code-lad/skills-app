@@ -106,8 +106,8 @@ export default {
       }
     },
     deleteSkillsList(skill) {
-      this.skills = this.skills.filter((skill) => {
-        return skill != skill;
+      this.skills = this.skills.filter((skills) => {
+        return skills != skill;
       });
     },
   },
